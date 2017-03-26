@@ -83,19 +83,19 @@ public class StatisticsTest {
 
     @Test
     public void topScorersReturnsRightAmount() {
-        assertEquals(4, stats.topScorers(4).size());
+        assertEquals(4, stats.topScorers(3).size());
     }
 
     @Test
     public void topScorersAreInRightOrder() {
-        List<Player> topScorers = stats.topScorers(5);
+        List<Player> topScorers = stats.topScorers(4);
 
         ArrayList<Player> players = new ArrayList<Player>();
 
+        players.add(new Player("Gretzky", "EDM", 35, 89));
         players.add(new Player("Lemieux", "PIT", 45, 54));
         players.add(new Player("Yzerman", "DET", 42, 56));
         players.add(new Player("Kurri", "EDM", 37, 53));
-        players.add(new Player("Gretzky", "EDM", 35, 89));
         players.add(new Player("Semenko", "EDM", 4, 12));
         
         int i = 0;
