@@ -117,4 +117,15 @@ public class KauppaTest {
 
         verify(pankki).tilisiirto(eq("akkep"), eq(43), eq("54321"), eq("33333-44455"), eq(2));
     }
+    
+    @Test
+    public void ostoksenVoiPoistaaOstoskorista() {
+        k.aloitaAsiointi();
+        k.lisaaKoriin(1);
+        k.lisaaKoriin(2);
+        k.poistaKorista(2);
+        k.tilimaksu("pekka", "12345");
+        
+        verify(pankki).tilisiirto(eq("pekka"), eq(42), eq("12345"), eq("33333-44455"), eq(7));
+    }
 }
