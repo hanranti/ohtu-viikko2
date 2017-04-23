@@ -7,13 +7,15 @@ public class TennisGame {
     private String player1Name;
     private String player2Name;
 
+    private int playPointScore = 4;
+
     public TennisGame(String player1Name, String player2Name) {
         this.player1Name = player1Name;
         this.player2Name = player2Name;
     }
 
     public void wonPoint(String playerName) {
-        if (playerName == "player1") {
+        if (playerName.equals("player1")) {
             player1Score += 1;
         } else {
             player2Score += 1;
@@ -24,8 +26,8 @@ public class TennisGame {
         String score = "";
         if (player1Score == player2Score) {
             score = getEqualScore();
-        } else if (player1Score >= 4 || player2Score >= 4) {
-            score = getMinusScore();
+        } else if (player1Score >= playPointScore || player2Score >= playPointScore) {
+            score = getPlayPointScore();
         } else {
             score = getInEqualScore();
         }
@@ -54,7 +56,7 @@ public class TennisGame {
         return score;
     }
 
-    private String getMinusScore() {
+    private String getPlayPointScore() {
         String score = "";
         int minusResult = player1Score - player2Score;
         if (minusResult == 1) {
