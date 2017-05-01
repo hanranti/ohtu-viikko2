@@ -17,7 +17,7 @@ private int value;
         try {                                    
             Method method = p.getClass().getMethod(fieldName);
             int playersValue = (Integer)method.invoke(p);
-            return playersValue<=value;
+            return playersValue<value;
             
         } catch (Exception ex) {
             System.out.println(ex);
